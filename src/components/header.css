@@ -1,0 +1,41 @@
+.header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+  align-items: center;
+  background-color: #04658b;
+  color: #fff;
+  border-bottom: 1px #fff dashed;
+  z-index: 2;
+}
+
+.header__brand {
+  margin-right: 2rem;
+  color: #fff;
+}
+
+.header__nav {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.header__nav-link {
+  min-width: 30px;
+  min-height: 30px;
+  border: #fff 1px solid;
+  text-align: center;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.header__nav svg {
+  color: #fff;
+  width: 20px;
+  height: 20px;
+}

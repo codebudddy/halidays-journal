@@ -1,0 +1,70 @@
+.compose {
+  padding: 0 2rem;
+  margin-top: 2rem;
+}
+
+.compose__heading {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+label,
+input,
+textarea {
+  display: block;
+  width: 80%;
+}
+
+label {
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+input {
+  height: 30px;
+}
+
+input,
+textarea {
+  background: linear-gradient(90deg, #04658baa, #04658b);
+  border: none;
+  outline: none;
+  border-radius: 10px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(240, 203, 203);
+}
+
+.compose__submit {
+  display: block;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #d6edf7;
+  color: #04658b;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: all 0.5s ease-in-out;
+}
+
+.compose__submit svg {
+  background-color: #d6edf7;
+  color: #04658b;
+}
+
+.compose__submit:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 550px) {
+  label,
+  input,
+  textarea {
+    width: 100%;
+  }
+}

@@ -1,0 +1,135 @@
+.post {
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.post__main {
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  margin: 6rem 1.5rem;
+}
+
+.post__main::-webkit-scrollbar {
+  display: none;
+}
+
+.post__heading {
+  color: #fff;
+  font-style: italic;
+  flex: 2;
+}
+
+.post__heading-others {
+  margin-top: 2rem;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.post__body {
+  flex: 3;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: flex-end;
+}
+
+.post__body-image {
+  width: 100%;
+  text-align: right;
+  margin-right: auto;
+}
+
+.post__body-image img {
+  width: 80%;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+.post__body-details {
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: right;
+}
+
+.post__main-outlet {
+  border-top: 3px solid;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  color: white;
+}
+
+.post__main-outlet_heading {
+  margin: 0.5rem 0 1rem;
+  font-size: 1.2rem;
+}
+
+.post__main-outlet_entries {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  text-align: left;
+  justify-content: flex-start;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.post__main-outlet_entries::-webkit-scrollbar {
+  display: none;
+}
+
+.post__main-outlet_entry {
+  min-width: 250px;
+  padding: 0.5rem;
+  border: 1px dotted #fff;
+  border-radius: 5px;
+}
+
+.post__main-outlet_entry h3 {
+  margin: 0.3rem 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.post__main-outlet_entry p {
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 550px) {
+  .post {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .post__heading {
+    text-align: left;
+  }
+
+  .post__heading-date {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 200;
+  }
+
+  .post__heading-summary {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .post__body-image {
+    text-align: left;
+  }
+
+  .post__body-details {
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+    font-weight: 900;
+  }
+}
