@@ -75,7 +75,10 @@
 @media screen and (max-width: 550px) {
   .home__hero-heading {
     margin: auto;
+    font-size: 1.1rem;
     flex: 1;
+    font-weight: 900;
+    padding: 0.5rem;
   }
   .home__hero-divider {
     display: none;

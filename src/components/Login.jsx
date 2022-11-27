@@ -1,24 +1,39 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { authentication } from '../firebase.config';
 import './login.css';
+import { useAuthContext } from '../hooks/useAuthContext';
 
 const Login = () => {
+  const { user } = useAuthContext();
   const navigate = useNavigate();
   const [password, setPassword] = useState('');
-  const appPassword = process.env.APP_PASSWORD;
-  const handleLogin = (e) => {
-    if (password === 'INtuit#014') {
-      localStorage.setItem('user', appPassword);
-      navigate('/');
-    }
-    console.log(password);
+  const [email, setEmail] = useState('');
 
-    setPassword('');
+  console.log(user);
+
+  const handleLogin = (e) => {
+    signInWithEmailAndPassword(authentication, email, password)
+      .then(() => {
+        navigate('/');
+        window.location.reload();
+      })
+      .catch((err) => console.log(err.message));
   };
   return (
     <div className="login">
-      <h1 className="login__heading">Enter Password to Continue</h1>
+      <h1 className="login__heading">Sign In </h1>
       <div className="login__password">
+        <label htmlFor="password">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            id="email"
+            placeholder="Enter Email"
+          />
+        </label>
         <label htmlFor="password">
           <input
             type="password"
