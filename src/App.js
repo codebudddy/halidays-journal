@@ -5,9 +5,10 @@ import Login from './components/Login';
 import './App.css';
 import { GiFeather } from 'react-icons/gi';
 import { useAuthContext } from './hooks/useAuthContext';
-
+import { useCollection } from './hooks/useCollections';
 const App = () => {
   const { user, authIsReady } = useAuthContext();
+  const { document } = useCollection('entries');
 
   console.log(authIsReady);
   return (
@@ -27,7 +28,10 @@ const App = () => {
                 </div>
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/posts/:postId" element={<Post />} />
+                  <Route
+                    path="/posts/:postId"
+                    element={<Post posts={document} />}
+                  />
                   <Route path="/posts" element={<Posts />} />
                   <Route path="/compose" element={<Compose />} />
                   <Route path="/login" element={<Login />} />
