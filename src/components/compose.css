@@ -40,7 +40,8 @@ textarea::placeholder {
 
 .compose__submit {
   display: block;
-  width: 100px;
+  min-width: 100px;
+  width: fit-content;
   height: 40px;
   border-radius: 10px;
   border: none;

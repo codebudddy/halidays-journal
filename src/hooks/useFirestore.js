@@ -61,10 +61,11 @@ export const useFirestore = (collectionName) => {
 
     try {
       await addDoc(collectionRef, d).then((res) => {
-        console.log(res.firestore);
+        console.log('Document Added Successfully', res.firestore);
       });
     } catch (err) {
       dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+      console.log(err);
     }
   };
 

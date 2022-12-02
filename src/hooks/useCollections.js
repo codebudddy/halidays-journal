@@ -25,8 +25,22 @@ export const useCollection = (collectionName, _query, _sort) => {
         );
         setDocument(data);
       },
-      (err) => setError(err)
+      (err) => setError(err.message)
     );
+
+    // onSnapshot(
+    //   collectionRef,
+    //   (snapshot) => {
+    //     let data = [];
+    //     snapshot.docs.forEach((doc) =>
+    //       data.push({ ...doc.data(), id: doc.id })
+    //     );
+    //     setDocument(data);
+    //   },
+    //   (err) => {
+    //     setError(err.message);
+    //   }
+    // );
   }, [collectionName, queryString, sortString]);
 
   return { error, document };
