@@ -26,6 +26,8 @@
   border: 1px solid #04658b;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
+  min-width: fit-content;
+  text-align: center;
 }
 
 .posts__by-dates_date:hover {
