@@ -1,49 +1,71 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { dummyEntry } from './data';
+import React, { useEffect, useState } from 'react';
 import './home.css';
-// import { GiFeather } from 'react-icons/gi';
-
-const todayEntries = dummyEntry.filter(
-  (e) => e.date.getDate() === new Date().getDate()
-);
+import { useCollection } from '../hooks/useCollections';
+import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+import { formatDistance } from 'date-fns';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const { document } = useCollection('entries');
+
+  //states
+  const [todayPost, setTodayPost] = useState([]);
+
+  useEffect(() => {
+    const fetchTodayPost = () => {
+      const posts = [];
+      document?.forEach((doc) => {
+        if (
+          doc?.createdAt?.toDate().toLocaleDateString() ===
+          new Date().toLocaleDateString()
+        ) {
+          posts.push(doc);
+        }
+      });
+      setTodayPost(posts);
+    };
+
+    fetchTodayPost();
+  }, [document]);
   return (
     <div className="home">
-      <div className="home__hero">
-        <div className="home__hero-container">
-          <div className="home__hero-divider"></div>
-          <h2 className="home__hero-heading">
-            Writting is the deepest form of thinking.
-            <br />
-            <i>...Anonymous</i>
-          </h2>
-        </div>
+      <div className="home__heading">
+        <h2 className="home__heading-quote">
+          "Journaling is a refined mode of thinking..."
+        </h2>
+        <p className="home__heading-by">_Anonymous</p>
       </div>
-      <div className="home__info">
-        {!dummyEntry ? (
-          <h1 className="home__info-heading">
-            Take a moment to take a note about your day.
-          </h1>
+      <div className="home__divider"></div>
+      <div className="home__today">
+        {todayPost.length <= 0 ? (
+          <div className="home__today-empty">
+            <h3> You have not made an entry today</h3>
+            <button
+              onClick={() => navigate('/compose')}
+              className="home__compose"
+            >
+              Write Something
+            </button>
+          </div>
         ) : (
-          <h1 className="home__info-heading">Today so far</h1>
-        )}
-
-        <div className="home__info-today">
-          {todayEntries.map((entry) => (
-            <Link key={entry.id} to={`/posts/${entry.id}`}>
-              <div className="home__info-today__entry card">
-                <h3 className="home__info-today__entry-date">
-                  {entry.date.toLocaleString()}
-                </h3>
-                <p className="home__info-today__entry-summary">
-                  {entry.summary}
-                </p>
+          <div className="home__today-entries">
+            {todayPost.map((p) => (
+              <div
+                className="home__today-entry"
+                onClick={() => navigate(`/posts/${p.id}`)}
+                key={uuidv4()}
+              >
+                <h2>
+                  {formatDistance(p?.createdAt?.toDate(), new Date(), {
+                    addSuffix: true,
+                  })}
+                </h2>
+                <p>{p.summary}</p>
               </div>
-            </Link>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
