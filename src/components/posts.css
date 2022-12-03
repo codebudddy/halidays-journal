@@ -5,6 +5,33 @@
   margin-bottom: 7rem;
 }
 
+.posts__by-dates {
+  display: flex;
+  margin: 0.5rem;
+  gap: 1rem;
+  color: #fff;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.posts__by-dates::-webkit-scrollbar {
+  display: none;
+}
+
+.posts__by-dates_date {
+  background: #024f6d;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid #04658b;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+.posts__by-dates_date:hover {
+  background-color: #04658b;
+}
+
 .posts__entries {
   display: flex;
   justify-content: flex-start;
@@ -14,7 +41,7 @@
 
 .posts__entries-entry {
   position: relative;
-  min-width: 320px;
+  width: 330px;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;

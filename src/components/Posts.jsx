@@ -1,15 +1,42 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { trim } from '../helpers';
-import { dummyEntry } from './data';
+
 import './posts.css';
 import { useCollection } from '../hooks/useCollections';
 import { formatDistance } from 'date-fns';
 
 const Posts = () => {
+  const navigate = useNavigate();
   const { document, error } = useCollection('entries');
+  const [datesArray, setDatesArray] = useState([]);
+
+  useEffect(() => {
+    const fetchDates = () => {
+      let dates = [];
+      document?.forEach((d) => {
+        if (!dates.includes(d?.createdAt?.toDate().toLocaleDateString())) {
+          dates.push(d.createdAt?.toDate().toLocaleDateString());
+        }
+      });
+      setDatesArray(dates);
+    };
+    fetchDates();
+  }, [document]);
   return (
     <div className="posts">
+      <div className="posts__by-dates">
+        {datesArray &&
+          datesArray.map((element) => (
+            <div
+              onClick={() => navigate(`/dates/${element}`)}
+              className="posts__by-dates_date"
+              key={element}
+            >
+              <p>{element}</p>
+            </div>
+          ))}
+      </div>
       <div className="posts__entries">
         {document &&
           document.map((entry) => (
