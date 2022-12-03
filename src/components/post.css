@@ -45,9 +45,16 @@
 .post__body-image img {
   width: 80%;
   /* max-height: 300px; */
-  border-radius: 5px;
+  height: 500px;
+  border-radius: 10px;
   margin-bottom: 0.5rem;
   text-align: right;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.post__body-image img:hover {
+  transform: scale(1.02);
 }
 
 .post__body-details {
@@ -101,6 +108,12 @@
   font-size: 0.9rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .post__body-image img {
+    max-height: 400px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .post {
     flex-direction: column;
@@ -113,7 +126,7 @@
   }
 
   .post__heading-date {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
     font-weight: 200;
   }
@@ -128,7 +141,7 @@
   }
 
   .post__body-image img {
-    max-height: 350px;
+    height: 350px;
   }
 
   .post__body-details {

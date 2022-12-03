@@ -75,7 +75,7 @@ const Post = () => {
               todayPost.map((p) => (
                 <div className="post__main-outlet_entry" key={p.id}>
                   <h3>
-                    {formatDistance(post?.createdAt?.toDate(), new Date(), {
+                    {formatDistance(p?.createdAt?.toDate(), new Date(), {
                       addSuffix: true,
                     })}
                   </h3>
