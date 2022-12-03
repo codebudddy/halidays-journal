@@ -1,6 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { Compose, Footer, Header, Home, Post, Posts } from './components';
+import {
+  Compose,
+  Footer,
+  Header,
+  Home,
+  Post,
+  Posts,
+} from './components';
 import Login from './components/Login';
 import './App.css';
 import { GiFeather } from 'react-icons/gi';
@@ -9,8 +16,6 @@ import { useCollection } from './hooks/useCollections';
 const App = () => {
   const { user, authIsReady } = useAuthContext();
   const { document } = useCollection('entries');
-
-  console.log(authIsReady);
   return (
     <div>
       {authIsReady && (
@@ -32,6 +37,7 @@ const App = () => {
                     path="/posts/:postId"
                     element={<Post posts={document} />}
                   />
+
                   <Route path="/posts" element={<Posts />} />
                   <Route path="/compose" element={<Compose />} />
                   <Route path="/login" element={<Login />} />
