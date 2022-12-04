@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { dummyEntry } from './data';
+import { useNavigate, useParams } from 'react-router-dom';
 import './post.css';
 import { useCollection } from '../hooks/useCollections';
 import { formatDistance } from 'date-fns';
+import { trim } from '../helpers';
 
 const Post = () => {
+  const navigate = useNavigate();
   const { postId } = useParams();
   const [post, setPost] = useState('');
   const [todayPost, setTodayEntries] = useState('');
@@ -73,13 +74,17 @@ const Post = () => {
           <div className="post__main-outlet_entries">
             {todayPost &&
               todayPost.map((p) => (
-                <div className="post__main-outlet_entry" key={p.id}>
+                <div
+                  onClick={() => navigate(`/posts/${p.id}`)}
+                  className="post__main-outlet_entry"
+                  key={p.id}
+                >
                   <h3>
                     {formatDistance(p?.createdAt?.toDate(), new Date(), {
                       addSuffix: true,
                     })}
                   </h3>
-                  <p>{p.summary}</p>
+                  <p>{trim(p?.summary, 30)}...</p>
                 </div>
               ))}
           </div>

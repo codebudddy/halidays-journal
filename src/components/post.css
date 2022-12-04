@@ -22,6 +22,17 @@
   flex: 2;
 }
 
+.post__heading-date {
+  font-size: 1rem;
+  margin: 1rem 0;
+  text-decoration: underline;
+}
+
+.post__heading-summary {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
 .post__heading-others {
   margin-top: 2rem;
   font-style: normal;
@@ -60,7 +71,8 @@
 .post__body-details {
   color: #fff;
   font-size: 1.5rem;
-  text-align: right;
+  text-align: left;
+  white-space: pre-wrap;
 }
 
 .post__main-outlet {
@@ -142,6 +154,7 @@
 
   .post__body-image img {
     height: 350px;
+    width: 100%;
   }
 
   .post__body-details {
