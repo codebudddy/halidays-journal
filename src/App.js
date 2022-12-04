@@ -1,13 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import {
-  Compose,
-  Footer,
-  Header,
-  Home,
-  Post,
-  Posts,
-} from './components';
+import { Compose, Footer, Header, Home, Post, Posts } from './components';
 import Login from './components/Login';
 import './App.css';
 import { GiFeather } from 'react-icons/gi';
@@ -49,7 +42,7 @@ const App = () => {
               </div>
             )}
           </div>
-          <Footer />
+          <div>{user && <Footer />}</div>
         </BrowserRouter>
       )}
     </div>

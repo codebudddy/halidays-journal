@@ -11,8 +11,6 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
 
-  console.log(user);
-
   const handleLogin = (e) => {
     signInWithEmailAndPassword(authentication, email, password)
       .then(() => {
