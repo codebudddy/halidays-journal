@@ -4,7 +4,6 @@ import { GrAdd } from 'react-icons/gr';
 import { useStorage } from '../hooks/useStorage';
 import { useFirestore } from '../hooks/useFirestore';
 import { serverTimestamp } from 'firebase/firestore';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,7 +18,7 @@ const initialValue = {
 const Compose = () => {
   const navigate = useNavigate();
   const [form, setForm] = useState(initialValue);
-  const { imageUpload, error, loading, imageUrl, progress } = useStorage();
+  const { imageUpload, loading, imageUrl, progress } = useStorage();
   const { addDocument } = useFirestore('entries');
 
   const handleChange = (e) => {
@@ -95,7 +94,6 @@ const Compose = () => {
           {loading ? `Uploading ${progress}%` : <GrAdd />}
         </button>
       </form>
-      <ToastContainer position="button" />
     </div>
   );
 };

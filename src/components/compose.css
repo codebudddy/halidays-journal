@@ -13,7 +13,8 @@ label,
 input,
 textarea {
   display: block;
-  width: 80%;
+  width: 70%;
+  font-size: 1.5rem;
 }
 
 label {
@@ -62,10 +63,20 @@ textarea::placeholder {
   opacity: 0.6;
 }
 
+@media screen and (max-width: 850px) {
+  input,
+  label,
+  textarea {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 550px) {
   label,
   input,
   textarea {
     width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
   }
 }

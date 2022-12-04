@@ -10,12 +10,12 @@
   padding: 0.5rem;
   border-radius: 10px;
   box-shadow: 2px 2px 0 2px #04658bcc;
-  transition: all 0.4s ease-in;
+  transition: all 0.2s ease-in;
   cursor: pointer;
 }
 
 .home__heading:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .home__heading-quote {
@@ -36,7 +36,7 @@
 
 .home__today {
   background: #04658b;
-  padding: 1rem;
+  padding: 1rem 0;
   text-align: center;
 }
 
@@ -66,14 +66,17 @@
   display: flex;
   text-align: left;
   flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: space-between;
+  gap: 1rem;
+  justify-content: flex-start;
   margin: 2rem 0;
+  border-radius: 10px;
 }
 
 .home__today-entry {
-  min-width: 320px;
-  border: 1px solid #fff;
+  width: 320px;
+  /* border: 1px solid #fff; */
+  background-color: #024c69cc;
+  box-shadow: 0 0 5px 0 #000000aa;
   padding: 0.3rem;
   border-radius: 5px;
   transition: all 0.4s ease-in-out;
@@ -82,4 +85,23 @@
 
 .home__today-entry:hover {
   transform: scale(1.05);
+}
+
+@media screen and (min-width: 768px) {
+  .home__today {
+    padding-right: 1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .home__heading {
+    margin: auto;
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .home__today-entry {
+    width: 300px;
+  }
 }

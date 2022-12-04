@@ -4,6 +4,7 @@ import { useCollection } from '../hooks/useCollections';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { formatDistance } from 'date-fns';
+import { trim } from '../helpers';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -61,7 +62,7 @@ const Home = () => {
                     addSuffix: true,
                   })}
                 </h2>
-                <p>{p.summary}</p>
+                <p>{trim(p.summary, 35)}...</p>
               </div>
             ))}
           </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { TfiWrite } from 'react-icons/tfi';
 import { SlCalender } from 'react-icons/sl';
 import { HiOutlineHome } from 'react-icons/hi';
 import { AiOutlinePoweroff } from 'react-icons/ai';
@@ -39,11 +38,7 @@ const Header = () => {
             <SlCalender />
           </Link>
         </li>
-        <li className="header__nav-link">
-          <Link to="/compose">
-            <TfiWrite />
-          </Link>
-        </li>
+
         {user && (
           <li className="header__nav-link power" onClick={logout}>
             <AiOutlinePoweroff />

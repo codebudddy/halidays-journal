@@ -21,14 +21,15 @@
 .header__nav {
   display: flex;
   width: 100%;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  align-items: baseline;
 }
 
 .header__nav-link {
   min-width: 30px;
   min-height: 30px;
-  border: #fff 1px solid;
+  /* border: #fff 1px solid; */
   text-align: center;
   border-radius: 50%;
   padding: 2px;
@@ -36,12 +37,14 @@
   transition: all 0.3s ease-in;
 }
 
-.header__nav-link:hover {
-  box-shadow: 0 0 0 2px rgba(2, 22, 138, 0.9);
-}
-
 .header__nav svg {
   color: #fff;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.header__nav svg:hover {
+  transform: scale(1.1);
 }

@@ -70,7 +70,7 @@
 
 .post__body-details {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: left;
   white-space: pre-wrap;
 }
@@ -85,11 +85,13 @@
 .post__main-outlet_heading {
   margin: 0.5rem 0 1rem;
   font-size: 1.2rem;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 .post__main-outlet_entries {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   overflow-x: scroll;
   scrollbar-width: none;
   justify-content: flex-start;
@@ -106,8 +108,15 @@
 .post__main-outlet_entry {
   min-width: 250px;
   padding: 0.5rem;
-  border: 1px dotted #fff;
+  /* border: 1px dotted #fff; */
+  box-shadow: 0 0 5px 0 #02558d;
   border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.post__main-outlet_entry:hover {
+  transform: translateX(4px);
 }
 
 .post__main-outlet_entry h3 {

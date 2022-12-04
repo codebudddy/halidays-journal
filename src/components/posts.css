@@ -1,13 +1,14 @@
 .posts {
   padding: 0.5rem 2rem;
   /* background-color: #04658b; */
-  margin: 6rem 0;
-  margin-bottom: 7rem;
+  margin: 7rem 0;
 }
 
 .posts__by-dates {
   display: flex;
-  margin: 0.5rem;
+  margin-bottom: 1rem;
+  justify-content: flex-start;
+  align-items: center;
   gap: 1rem;
   color: #fff;
   overflow-x: scroll;
@@ -30,6 +31,21 @@
   text-align: center;
 }
 
+.current {
+  background: #fff;
+  color: #04658b;
+  padding: 0.3rem;
+  border-radius: 10px;
+  border: 1px solid #04658b;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  min-width: fit-content;
+  text-align: center;
+}
+
+.current:hover {
+  color: #fff;
+}
 .posts__by-dates_date:hover {
   background-color: #04658b;
 }
@@ -52,20 +68,20 @@
   color: #fff;
   padding: 0.5rem;
   border-radius: 5px;
-  box-shadow: 0 0 0 2px #04658baa;
+  box-shadow: 0 0 5px 0 #013e57aa;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .posts__entries-entry:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
 }
 
 .posts__entries-entry_id {
   position: absolute;
   top: 20px;
   right: 20px;
-  background: #0548c5;
+  background: #0f455e;
   padding: 1rem;
   color: #fff;
   font-style: italic;
@@ -76,6 +92,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.posts__entries-entry_date {
+  font-size: 0.8rem;
+}
+
+.posts__entries-entry_summary {
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.posts__entries-entry_details {
+  font-size: 0.8rem;
+  font-weight: 100;
 }
 
 .posts__entries-view {
